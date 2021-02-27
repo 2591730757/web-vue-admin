@@ -11,7 +11,20 @@ module.exports = {
 
     },
     configureWebpack: (config) => {
-
+        // 配置解析别名
+        config.resolve = {
+            // 自动添加文件名后缀
+            extensions: ['.js', '.json', '.vue'],
+            alias: {
+                '@': path.resolve(__dirname, './src'),
+                '@c': path.resolve(__dirname, './src/components'),
+                // 'public': path.resolve(__dirname, './public'),
+                // 'common': path.resolve(__dirname, './src/common'),
+                // 'api': path.resolve(__dirname, './src/api'),
+                // 'views': path.resolve(__dirname, './src/views'),
+                // 'data': path.resolve(__dirname, './src/data')
+            }
+        }
     },
     // 生产环境是否生成 sourceMap 文件
     productionSourceMap: false,
